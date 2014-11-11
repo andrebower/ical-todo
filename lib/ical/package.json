@@ -1,0 +1,52 @@
+{
+  "name": "ical.js",
+  "version": "0.0.6",
+  "author": "Philipp Kewisch",
+  "contributors": [
+    "Github Contributors (https://github.com/mozilla-comm/ical.js/graphs/contributors)"
+  ],
+  "description": "",
+  "main": "build/ical.js",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/mozilla-comm/ical.js.git"
+  },
+
+  "keywords": [
+    "calendar",
+    "iCalendar",
+    "jCal",
+    "vCard",
+    "jCard",
+    "parser"
+  ],
+  "dependencies" : {},
+  "devDependencies": {
+    "mocha": "~1.7",
+    "chai": "0.5.2",
+    "test-agent": "~0.12",
+    "benchmark": "~1.0"
+  },
+  "license": "MPL-2.0",
+  "engine": {
+    "node": ">=0.4"
+  },
+
+  "scripts": {
+    "test": "make test-node"
+  },
+
+  "testling": {
+    "files": [
+        "test/helper.js",
+        "test/*_test.js",
+        "test/acceptance/*_test.js"
+    ],
+    "browsers": [
+      "ie9", "ie10",
+      "chrome25",
+      "firefox17", "firefox19",
+      "safari6"
+    ]
+  }
+}
