@@ -1,0 +1,12 @@
+
+[0m[0m
+[0m  Test ical parsing[0m
+[2K[0G  [32m  ✓[0m[90m uid should be set correctly [0m
+[2K[0G  [32m  ✓[0m[90m Custom fields should work [0m
+[2K[0G  [32m  ✓[0m[90m RRule 2 iterations should compute next Date correctly [0m
+[2K[0G  [32m  ✓[0m[90m Vevent 2 should not have RRule [0m
+[2K[0G  [32m  ✓[0m[90m Vevent 2 should have correct description [0m
+
+
+[92m [0m[32m 5 passing[0m[90m (25ms)[0m
+

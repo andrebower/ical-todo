@@ -16,11 +16,14 @@
     "url": "https://github.com/andrebower/caldav-todo/issues"
   },
   "homepage": "https://github.com/andrebower/caldav-todo",
-  "dependencies": {},
+  "dependencies": {
+    "grunt": "^0.4.5"
+  },
   "devDependencies": {
     "chai": "^1.10.0",
     "grunt": "^0.4.5",
     "grunt-mocha": "^0.4.11",
+    "grunt-mocha-test": "^0.12.2",
     "mocha": "^2.0.1"
   }
 }
