@@ -3,10 +3,9 @@
  */
 var should = require('chai').should(),
     ical = require('../lib/ical'),
-    fs = require('fs');
+    fs = require('./fs-test-helper');
 
-var ics = fs.readFileSync('./test/test-ics/79fe94ee-5524-46bd-b5e6-4fdec65c1f01-noch-nicht-erledigt.ics',{encoding :'utf8'});
-ics = ics.replace(/\r\n|\n/g,'\r\n');
+var ics = fs.readFileSync('./test/test-ics/79fe94ee-5524-46bd-b5e6-4fdec65c1f01-noch-nicht-erledigt.ics');
 var util = require('util');
 
 describe('Test ical parsing modifiying and creation', function() {

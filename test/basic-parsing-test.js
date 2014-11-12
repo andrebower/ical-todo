@@ -1,9 +1,8 @@
 var should = require('chai').should(),
     ical = require('../lib/ical'),
-    fs = require('fs');
+    fs = require('./fs-test-helper');
 
-var ics = fs.readFileSync('./test/test-ics/basic-example.ics',{encoding:'utf8'});
-ics = ics.replace(/\r\n|\n/g,'\r\n');
+var ics = fs.readFileSync('./test/test-ics/basic-example.ics');
 var util = require('util');
 
 
