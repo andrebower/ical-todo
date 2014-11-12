@@ -1,1 +1,2 @@
-module.exports = require('./lib/ical');
+var ical = require('./lib/ical');
+
