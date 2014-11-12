@@ -9,6 +9,15 @@
 
   Test ical-todo todo creation methods
     √ getTodoWithRecurrenceId should find correct todo 
+[ { jCal: [ 'vtodo', [Object], [] ],
+    parent: 
+     { jCal: [Object],
+       parent: null,
+       _components: [Object],
+       _hydratedComponentCount: 2 },
+    _properties: [ , , , , , , , [Object] ],
+    _hydratedPropertyCount: 1 } ]
+    √ getAllOpenTodos  
 
   Test ical parsing modifiying and creation
     √ Parsing and stringifiying should be equal to input 
@@ -16,5 +25,5 @@
     √ Parsing and modifiying vtodo 
 
 
-  9 passing (16ms)
+  10 passing (19ms)
 

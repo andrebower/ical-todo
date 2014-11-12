@@ -15,4 +15,9 @@ describe('Test ical-todo todo creation methods', function() {
         var vtodo = icalTodo.getTodoWithRecurrenceId(vtodos,ical.Time.fromJSDate(new Date(2014,10,12,10,00,00)));
         vtodo.should.equal(vtodos[1]);
     });
+    it('getAllOpenTodos ', function() {
+       var opentodos = icalTodo.getAllOpenTodos(ics,new Date());
+        console.log(opentodos);
+
+    });
 });

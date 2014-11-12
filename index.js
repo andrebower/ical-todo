@@ -4,21 +4,22 @@ var ical = require('./lib/ical'),
 var map = {};
 
 var getAllOpenTodos = function(input,until){
-    if(!until.instanceOf(Date)) {
+    if(!until instanceof Date) {
         throw 'Second parameter has to be a date'
     }
-    var component = ical.Component(ical.parse(input));
+    var component = new ical.Component(ical.parse(input));
     var vtodos = component.getAllSubcomponents('vtodo');
-    var rrule = vtodos.getFirstPropertyValue("rrule");
-    var dtstart = vtodos.getFirstPropertyValue("dtstart");
+    var rrule = vtodos[0].getFirstPropertyValue("rrule");
+    var dtstart = vtodos[0].getFirstPropertyValue("dtstart");
     var iter = rrule.iterator(dtstart);
     var next, result = [];
-    while(next = iter.next()){
+    do{
+        next = iter.next() ;
         var  existingtodo;
         if(existingtodo = getTodoWithRecurrenceId(vtodos,next)) {
             result.push(existingtodo);
         }
-    }
+    }while( next && next.compare(ical.Time.fromJSDate(until)) <= 0 );
     return result
 
 };
