@@ -6,6 +6,7 @@ var should = require('chai').should(),
     fs = require('fs');
 
 var ics = fs.readFileSync('./test/test-ics/79fe94ee-5524-46bd-b5e6-4fdec65c1f01-noch-nicht-erledigt.ics',{encoding :'utf8'});
+ics = ics.replace(/\r\n|\n/g,'\r\n');
 var util = require('util');
 
 describe('Test ical parsing modifiying and creation', function() {
@@ -17,12 +18,14 @@ describe('Test ical parsing modifiying and creation', function() {
         var comp = new ical.Component(ical.parse(ics));
         var vtodos = comp.getAllSubcomponents('vtodo');
         var vtodoString = fs.readFileSync('./test/test-ics/vtodo.txt',{encoding:'utf8'});
+        vtodoString = vtodoString.replace(/\r\n|\n/g,'\r\n');
         vtodos.toString().should.equal(vtodoString);
     });
     it('Parsing and modifiying vtodo', function() {
         var comp = new ical.Component(ical.parse(ics));
         var vtodos = comp.getAllSubcomponents('vtodo');
         var vtodoDoneOnceString = fs.readFileSync('./test/test-ics/79fe94ee-5524-46bd-b5e6-4fdec65c1f01-ein-mal-erledigt.ics',{encoding:'utf8'});
+        vtodoDoneOnceString = vtodoDoneOnceString.replace(/\r\n|\n/g,'\r\n');
         var newvtodo = new ical.Component(ical.parse(vtodos[0].toString()));
         newvtodo.removeProperty('rrule');
         newvtodo.addPropertyWithValue('status','COMPLETED');

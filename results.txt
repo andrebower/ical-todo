@@ -1,29 +1,21 @@
 
+[0m[0m
+[0m  Test ical parsing[0m
+[2K[0G  [32m  ✓[0m[90m Parsing and stringifiying should be equal to input [0m
+[2K[0G  [32m  ✓[0m[90m Custom fields should work [0m
+[2K[0G  [32m  ✓[0m[90m RRule 2 iterations should compute next Date correctly [0m
+[2K[0G  [32m  ✓[0m[90m Vevent 2 should not have RRule [0m
+[2K[0G  [32m  ✓[0m[90m Vevent 2 should have correct description [0m
 
-  Test ical parsing
-    √ Parsing and stringifiying should be equal to input 
-    √ Custom fields should work 
-    √ RRule 2 iterations should compute next Date correctly 
-    √ Vevent 2 should not have RRule 
-    √ Vevent 2 should have correct description 
+[0m  Test ical-todo todo creation methods[0m
+[2K[0G  [32m  ✓[0m[90m getTodoWithRecurrenceId should find correct todo [0m
+[2K[0G  [32m  ✓[0m[90m getAllOpenTodos  [0m
 
-  Test ical-todo todo creation methods
-    √ getTodoWithRecurrenceId should find correct todo 
-[ { jCal: [ 'vtodo', [Object], [] ],
-    parent: 
-     { jCal: [Object],
-       parent: null,
-       _components: [Object],
-       _hydratedComponentCount: 2 },
-    _properties: [ , , , , , , , [Object] ],
-    _hydratedPropertyCount: 1 } ]
-    √ getAllOpenTodos  
-
-  Test ical parsing modifiying and creation
-    √ Parsing and stringifiying should be equal to input 
-    √ Parsing and reading vtodo 
-    √ Parsing and modifiying vtodo 
+[0m  Test ical parsing modifiying and creation[0m
+[2K[0G  [32m  ✓[0m[90m Parsing and stringifiying should be equal to input [0m
+[2K[0G  [32m  ✓[0m[90m Parsing and reading vtodo [0m
+[2K[0G  [32m  ✓[0m[90m Parsing and modifiying vtodo [0m
 
 
-  10 passing (19ms)
+[92m [0m[32m 10 passing[0m[90m (39ms)[0m
 

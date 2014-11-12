@@ -3,7 +3,7 @@ var should = require('chai').should(),
     fs = require('fs');
 
 var ics = fs.readFileSync('./test/test-ics/basic-example.ics',{encoding:'utf8'});
-
+ics = ics.replace(/\r\n|\n/g,'\r\n');
 var util = require('util');
 
 
