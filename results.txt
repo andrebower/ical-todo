@@ -7,11 +7,14 @@
     √ Vevent 2 should not have RRule 
     √ Vevent 2 should have correct description 
 
+  Test ical-todo todo creation methods
+    √ getTodoWithRecurrenceId should find correct todo 
+
   Test ical parsing modifiying and creation
     √ Parsing and stringifiying should be equal to input 
     √ Parsing and reading vtodo 
     √ Parsing and modifiying vtodo 
 
 
-  8 passing (15ms)
+  9 passing (16ms)
 
