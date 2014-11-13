@@ -1,32 +1,35 @@
 
+[0m[0m
+[0m  Test ical parsing[0m
+[2K[0G  [32m  ✓[0m[90m Parsing and stringifiying should be equal to input [0m
+[2K[0G  [32m  ✓[0m[90m Custom fields should work [0m
+[2K[0G  [32m  ✓[0m[90m RRule 2 iterations should compute next Date correctly [0m
+[2K[0G  [32m  ✓[0m[90m Vevent 2 should not have RRule [0m
+[2K[0G  [32m  ✓[0m[90m Vevent 2 should have correct description [0m
 
-  Test ical parsing
-    √ Parsing and stringifiying should be equal to input 
-    √ Custom fields should work 
-    √ RRule 2 iterations should compute next Date correctly 
-    √ Vevent 2 should not have RRule 
-    √ Vevent 2 should have correct description 
+[0m  Test ical-todo todo creation methods[0m
+[2K[0G  [32m  ✓[0m[90m getTodoWithRecurrenceId should find correct todo [0m
+[2K[0G  [32m  ✓[0m[90m getAllOpenTodos in one year(till 2015-11-12-0759) [0m[31m(175ms)[0m
+[2K[0G  [32m  ✓[0m[90m isCompleted should return true for completed [0m
+[2K[0G  [32m  ✓[0m[90m getAllOpenTodos in one year(till 2015-11-12-0759) without the completed one [0m[31m(126ms)[0m
+[2K[0G  [32m  ✓[0m[90m getAllOpenTodos in one year(till 2015-11-12-0759) with a copied one only 2 repeats [0m
 
-  Test ical-todo todo creation methods
-    √ getTodoWithRecurrenceId should find correct todo 
-    √ getAllOpenTodos in one year(till 2015-11-12-0759) (85ms)
-    √ isCompleted should return true for completed 
-    √ getAllOpenTodos in one year(till 2015-11-12-0759) without the completed one (46ms)
-    √ getAllOpenTodos in one year(till 2015-11-12-0759) with a copied one only 2 repeats 
+[0m  Test ical parsing modifiying and creation[0m
+[2K[0G  [32m  ✓[0m[90m Parsing and stringifiying should be equal to input [0m
+[2K[0G  [32m  ✓[0m[90m Parsing and reading vtodo [0m
+[2K[0G  [32m  ✓[0m[90m Parsing and modifiying vtodo [0m
 
-  Test ical parsing modifiying and creation
-    √ Parsing and stringifiying should be equal to input 
-    √ Parsing and reading vtodo 
-    √ Parsing and modifiying vtodo 
+[0m  Test todo-repository[0m
+[2K[0G  [32m  ✓[0m[90m test map single instance [0m
 
-  Test ical-todo todo creation methods
-    √ createTodoFromScratch should create custom todo objects 
-    √ createTodoFromScratch should create custom todo object with summary 
-    √ createTodoFromScratch should create custom todo object with description 
-    √ createTodoFromScratch should create custom todo object with dueDate 
-    √ createTodoFromScratch should create custom todo object with uuid 
-    √ createTodoFromScratch should create custom todo object with correct vtodo 
+[0m  Test ical-todo todo creation methods[0m
+[2K[0G  [32m  ✓[0m[90m createTodoFromScratch should create custom todo objects [0m
+[2K[0G  [32m  ✓[0m[90m createTodoFromScratch should create custom todo object with summary [0m
+[2K[0G  [32m  ✓[0m[90m createTodoFromScratch should create custom todo object with description [0m
+[2K[0G  [32m  ✓[0m[90m createTodoFromScratch should create custom todo object with dueDate [0m
+[2K[0G  [32m  ✓[0m[90m createTodoFromScratch should create custom todo object with uuid [0m
+[2K[0G  [32m  ✓[0m[90m createTodoFromScratch should create custom todo object with correct vtodo [0m
 
 
-  19 passing (154ms)
+[92m [0m[32m 20 passing[0m[90m (360ms)[0m
 
