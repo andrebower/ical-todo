@@ -5,7 +5,7 @@ var chai = require('chai'),
     should = chai.should(),
     icalTodo = require('../index'),
     ical = require('../lib/ical'),
-    fs = require('./fs-test-helper');
+    fs = require('./test-helper/fs-test-helper');
 
 
 describe('Test ical-todo todo creation methods', function() {

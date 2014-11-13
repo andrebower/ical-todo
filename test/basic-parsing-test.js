@@ -1,6 +1,6 @@
 var should = require('chai').should(),
     ical = require('../lib/ical'),
-    fs = require('./fs-test-helper');
+    fs = require('./test-helper/fs-test-helper');
 
 var ics = fs.readFileSync('./test/test-ics/basic-example.ics');
 var util = require('util');

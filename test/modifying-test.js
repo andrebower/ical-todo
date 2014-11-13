@@ -3,7 +3,7 @@
  */
 var should = require('chai').should(),
     ical = require('../lib/ical'),
-    fs = require('./fs-test-helper');
+    fs = require('./test-helper/fs-test-helper');
 
 var ics = fs.readFileSync('./test/test-ics/79fe94ee-5524-46bd-b5e6-4fdec65c1f01-not-completed.ics');
 var util = require('util');
@@ -23,8 +23,7 @@ describe('Test ical parsing modifiying and creation', function() {
     it('Parsing and modifiying vtodo', function() {
         var comp = new ical.Component(ical.parse(ics));
         var vtodos = comp.getAllSubcomponents('vtodo');
-        var vtodoDoneOnceString = fs.readFileSync('./test/test-ics/79fe94ee-5524-46bd-b5e6-4fdec65c1f01-completed-once.ics',{encoding:'utf8'});
-        vtodoDoneOnceString = vtodoDoneOnceString.replace(/\r\n|\n/g,'\r\n');
+        var vtodoDoneOnceString = fs.readFileSync('./test/test-ics/79fe94ee-5524-46bd-b5e6-4fdec65c1f01-completed-once.ics');
         var newvtodo = new ical.Component(ical.parse(vtodos[0].toString()));
         newvtodo.removeProperty('rrule');
         newvtodo.addPropertyWithValue('status','COMPLETED');
