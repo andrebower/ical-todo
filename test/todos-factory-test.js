@@ -49,9 +49,9 @@ describe('Test ical-todo todo creation methods', function() {
         customTodo.data.uuid.should.be.a('string');
     });
     it('createTodoFromScratch should create custom todo object with correct vtodo', function() {
-        var vtodo = getRepeatingvTodo('./test/test-ics/3e65ac8d-a35c-4c53-acc0-d98906be436b-factory-test.ics');
+        var vtodo = getRepeatingvTodo('./test/test-ics/3e65ac8d-a35c-4c53-acc0-d98906be436b-just-copied.ics');
         var customTodo = todoFactory.createTodoFromScratch(vtodo,ical.Time.fromJSDate(new Date(2014,10,13,16,00,00)));
-        var vtodoCopiedString = fs.readFileSync('./test/test-ics/3e65ac8d-a35c-4c53-acc0-d98906be436b-factory-test.ics');
+        var vtodoCopiedString = fs.readFileSync('./test/test-ics/3e65ac8d-a35c-4c53-acc0-d98906be436b-just-copied.ics');
         var comp = new ical.Component(ical.parse(vtodoCopiedString));
         var vtodoCopied= comp.getAllSubcomponents('vtodo')[1];
         vtodoCopied.updatePropertyWithValue('created',new ical.Time.fromJSDate(new Date()));

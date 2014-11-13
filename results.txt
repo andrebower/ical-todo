@@ -9,9 +9,10 @@
 
   Test ical-todo todo creation methods
     √ getTodoWithRecurrenceId should find correct todo 
-    √ getAllOpenTodos in one year(till 2015-11-12-0759) (81ms)
-    √ is completed should return true for completed 
-    √ getAllOpenTodos in one year(till 2015-11-12-0759) without the completed one (49ms)
+    √ getAllOpenTodos in one year(till 2015-11-12-0759) (85ms)
+    √ isCompleted should return true for completed 
+    √ getAllOpenTodos in one year(till 2015-11-12-0759) without the completed one (46ms)
+    √ getAllOpenTodos in one year(till 2015-11-12-0759) with a copied one only 2 repeats 
 
   Test ical parsing modifiying and creation
     √ Parsing and stringifiying should be equal to input 
@@ -27,5 +28,5 @@
     √ createTodoFromScratch should create custom todo object with correct vtodo 
 
 
-  18 passing (150ms)
+  19 passing (154ms)
 

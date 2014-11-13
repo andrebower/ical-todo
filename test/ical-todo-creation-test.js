@@ -21,7 +21,7 @@ describe('Test ical-todo todo creation methods', function() {
        var opentodos = icalTodo.getAllOpenTodos(nochNichtErledigt,new Date(2015,10,12,7,59));
        opentodos.should.have.length(365);
     });
-    it('is completed should return true for completed', function() {
+    it('isCompleted should return true for completed', function() {
         var einMalErledigt = fs.readFileSync('./test/test-ics/79fe94ee-5524-46bd-b5e6-4fdec65c1f01-completed-once.ics');
         var comp = new ical.Component(ical.parse(einMalErledigt));
         var vtodos = comp.getAllSubcomponents('vtodo');
@@ -32,5 +32,10 @@ describe('Test ical-todo todo creation methods', function() {
         var nochNichtErledigt = fs.readFileSync('./test/test-ics/79fe94ee-5524-46bd-b5e6-4fdec65c1f01-completed-once.ics');
         var opentodos = icalTodo.getAllOpenTodos(nochNichtErledigt,new Date(2015,10,12,7,59));
         opentodos.should.have.length(364);
+    });
+    it('getAllOpenTodos in one year(till 2015-11-12-0759) with a copied one only 2 repeats', function() {
+        var nochNichtErledigt = fs.readFileSync('./test/test-ics/3e65ac8d-a35c-4c53-acc0-d98906be436b-just-copied.ics');
+        var opentodos = icalTodo.getAllOpenTodos(nochNichtErledigt,new Date(2015,10,12,7,59));
+        opentodos.should.have.length(2);
     });
 });
