@@ -1,47 +1,56 @@
+'use strict';
 var ical = require('./lib/ical'),
-    uuid = require('node-uuid');
+    todoFactory = require('./lib/ical-todo/todo-factory');
 
-var map = {};
+var COMPLETED = 'COMPLETED';
 
-var getAllOpenTodos = function(input,until){
-    if(!until instanceof Date) {
-        throw 'Second parameter has to be a date'
-    }
-    var component = new ical.Component(ical.parse(input));
-    var vtodos = component.getAllSubcomponents('vtodo');
-    var rrule = vtodos[0].getFirstPropertyValue("rrule");
-    var dtstart = vtodos[0].getFirstPropertyValue("dtstart");
-    var iter = rrule.iterator(dtstart);
-    var next, result = [];
-    do{
-        next = iter.next() ;
-        var  existingtodo;
-        if(existingtodo = getTodoWithRecurrenceId(vtodos,next)) {
-            result.push(existingtodo);
-        }
-    }while( next && next.compare(ical.Time.fromJSDate(until)) <= 0 );
-    return result
-
+var isCompleted = function (existingTodo) {
+    return existingTodo.getFirstProperty('status').getFirstValue() === COMPLETED;
 };
 
-var getTodoWithRecurrenceId =  function(todos,recurrenceId) {
+var getTodoWithRecurrenceId = function (todos, recurrenceId) {
     for (var i = 0; i < todos.length; i++) {
         var val = todos[i];
-        if(!val.getFirstProperty('recurrence-id')) {
+        if (!val.getFirstProperty('recurrence-id')) {
             continue;
         }
-        if(val.getFirstProperty('recurrence-id').getFirstValue().toICALString() === recurrenceId.toICALString()) {
+        if (val.getFirstProperty('recurrence-id').getFirstValue().toICALString() === recurrenceId.toICALString()) {
             return val;
         }
     }
     return null;
 };
 
-function createTodo(vtodo) {
+var getAllOpenTodos = function (input, until) {
+    if (!until instanceof Date) {
+        throw 'Second parameter has to be a date';
+    }
 
-}
+    var component = new ical.Component(ical.parse(input)),
+        vtodos = component.getAllSubcomponents('vtodo'),
+        rrule = vtodos[0].getFirstPropertyValue("rrule"),
+        dtstart = vtodos[0].getFirstPropertyValue("dtstart"),
+        iter = rrule.iterator(dtstart),
+        next = iter.next(),
+        result = [];
+    while (next && next.compare(ical.Time.fromJSDate(until)) <= 0) {
+        var existingTodo = getTodoWithRecurrenceId(vtodos, next);
+        if (existingTodo && isCompleted(existingTodo)) {
+            next = iter.next();
+            continue;
+        }
+        var newTodo = todoFactory.createTodoFromScratch(vtodos[0], next)
+        result.push(next);
+        next = iter.next();
+    }
+    return result;
+
+};
+
+
 
 module.exports = {
-    getAllOpenTodos:getAllOpenTodos,
-    getTodoWithRecurrenceId:getTodoWithRecurrenceId
+    getAllOpenTodos: getAllOpenTodos,
+    getTodoWithRecurrenceId: getTodoWithRecurrenceId,
+    isCompleted: isCompleted
 };
