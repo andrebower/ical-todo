@@ -9,7 +9,7 @@
 
   Test ical-todo todo creation methods
     √ getTodoWithRecurrenceId should find correct todo 
-    √ getAllOpenTodos in one year(till 2015-11-12-0759) (80ms)
+    √ getAllOpenTodos in one year(till 2015-11-12-0759) (78ms)
     √ isCompleted should return true for completed 
     √ getAllOpenTodos in one year(till 2015-11-12-0759) without the completed one (46ms)
     √ getAllOpenTodos in one year(till 2015-11-12-0759) with a copied one only 2 repeats 
@@ -31,5 +31,5 @@
     √ createTodoFromScratch should create custom todo object with correct vtodo 
 
 
-  20 passing (149ms)
+  20 passing (146ms)
 
