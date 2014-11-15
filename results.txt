@@ -9,10 +9,9 @@
 
 [0m  Test ical-todo todo creation methods[0m
 [2K[0G  [32m  ✓[0m[90m getTodoWithRecurrenceId should find correct todo [0m
-[2K[0G  [32m  ✓[0m[90m getAllOpenTodos in one year(till 2015-11-12-0759) [0m[31m(165ms)[0m
-[2K[0G  [32m  ✓[0m[90m isCompleted should return true for completed [0m
-[2K[0G  [32m  ✓[0m[90m getAllOpenTodos in one year(till 2015-11-12-0759) without the completed one [0m[31m(132ms)[0m
-[2K[0G  [32m  ✓[0m[90m getAllOpenTodos in one year(till 2015-11-12-0759) with a copied one only 2 repeats [0m
+[2K[0G  [32m  ✓[0m[90m getAllTodos in one year(till 2015-11-12-0759) [0m[31m(164ms)[0m
+[2K[0G  [32m  ✓[0m[90m getAllodos in one year(till 2015-11-12-0759) without the completed one [0m[31m(125ms)[0m
+[2K[0G  [32m  ✓[0m[90m getAllTodos in one year(till 2015-11-12-0759) with a copied one only 2 repeats [0m
 
 [0m  Test ical parsing modifiying and creation[0m
 [2K[0G  [32m  ✓[0m[90m Parsing and stringifiying should be equal to input [0m
@@ -20,9 +19,9 @@
 [2K[0G  [32m  ✓[0m[90m Parsing and modifiying vtodo [0m
 
 [0m  Test todo-repository[0m
-[2K[0G  [32m  ✓[0m[90m test if mocking of caldav-requester works [0m
-[2K[0G  [32m  ✓[0m[90m test getAllTodos firstOpen is correct [0m
-[2K[0G  [32m  ✓[0m[90m test getAllTodos fifthOpen is correct [0m
+[2K[0G  [32m  ✓[0m[90m test if mocking of caldav-requester works [0m[31m(145ms)[0m
+[2K[0G  [32m  ✓[0m[90m test getAllTodos first is completed [0m[31m(131ms)[0m
+[2K[0G  [32m  ✓[0m[90m test getAllTodos fifthOpen is correct [0m[31m(131ms)[0m
 
 [0m  Test ical-todo todo creation methods[0m
 [2K[0G  [32m  ✓[0m[90m createTodoFromScratch should create custom todo objects [0m
@@ -35,5 +34,5 @@
 [2K[0G  [32m  ✓[0m[90m createTodoFromExisting should create custom todo object with correct vtodo [0m
 
 
-[92m [0m[32m 24 passing[0m[90m (399ms)[0m
+[92m [0m[32m 23 passing[0m[90m (744ms)[0m
 

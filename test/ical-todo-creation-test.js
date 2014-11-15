@@ -16,26 +16,19 @@ describe('Test ical-todo todo creation methods', function() {
         var vtodo = icalTodo.getTodoWithRecurrenceId(vtodos,ical.Time.fromJSDate(new Date(2014,10,12,10,00,00)));
         vtodo.should.equal(vtodos[1]);
     });
-    it('getAllOpenTodos in one year(till 2015-11-12-0759)', function() {
+    it('getAllTodos in one year(till 2015-11-12-0759)', function() {
        var nochNichtErledigt = fs.readFileSync('./test/test-ics/79fe94ee-5524-46bd-b5e6-4fdec65c1f01-not-completed.ics');
-       var opentodos = icalTodo.getAllOpenTodos(nochNichtErledigt,new Date(2015,10,12,7,59));
+       var opentodos = icalTodo.getAllTodos(nochNichtErledigt,new Date(2015,10,12,7,59));
        opentodos.should.have.length(365);
     });
-    it('isCompleted should return true for completed', function() {
-        var einMalErledigt = fs.readFileSync('./test/test-ics/79fe94ee-5524-46bd-b5e6-4fdec65c1f01-completed-once.ics');
-        var comp = new ical.Component(ical.parse(einMalErledigt));
-        var vtodos = comp.getAllSubcomponents('vtodo');
-        icalTodo.isCompleted(vtodos[1]).should.be.true;
-
-    });
-    it('getAllOpenTodos in one year(till 2015-11-12-0759) without the completed one', function() {
+    it('getAllodos in one year(till 2015-11-12-0759) without the completed one', function() {
         var nochNichtErledigt = fs.readFileSync('./test/test-ics/79fe94ee-5524-46bd-b5e6-4fdec65c1f01-completed-once.ics');
-        var opentodos = icalTodo.getAllOpenTodos(nochNichtErledigt,new Date(2015,10,12,7,59));
-        opentodos.should.have.length(364);
+        var opentodos = icalTodo.getAllTodos(nochNichtErledigt,new Date(2015,10,12,7,59));
+        opentodos.should.have.length(365);
     });
-    it('getAllOpenTodos in one year(till 2015-11-12-0759) with a copied one only 2 repeats', function() {
+    it('getAllTodos in one year(till 2015-11-12-0759) with a copied one only 2 repeats', function() {
         var nochNichtErledigt = fs.readFileSync('./test/test-ics/3e65ac8d-a35c-4c53-acc0-d98906be436b-just-copied.ics');
-        var opentodos = icalTodo.getAllOpenTodos(nochNichtErledigt,new Date(2015,10,12,7,59));
+        var opentodos = icalTodo.getAllTodos(nochNichtErledigt,new Date(2015,10,12,7,59));
         opentodos.should.have.length(2);
     });
 });
