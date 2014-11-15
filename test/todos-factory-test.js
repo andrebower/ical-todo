@@ -9,16 +9,19 @@ var chai = require('chai'),
 chai.use(require('chai-datetime'));
 
 var getNotCompletedVtodo = function () {
-    var nochNichtErledigt = fs.readFileSync('./test/test-ics/79fe94ee-5524-46bd-b5e6-4fdec65c1f01-not-completed.ics');
+    return getFirstvTodo('./test/test-ics/79fe94ee-5524-46bd-b5e6-4fdec65c1f01-not-completed.ics');
+};
+
+var getFirstvTodo = function (path) {
+    var nochNichtErledigt = fs.readFileSync(path);
     var comp = new ical.Component(ical.parse(nochNichtErledigt));
     var vtodo = comp.getFirstSubcomponent('vtodo');
     return vtodo;
 };
-
-var getRepeatingvTodo = function (path) {
+var getSecondvTodo = function (path) {
     var nochNichtErledigt = fs.readFileSync(path);
     var comp = new ical.Component(ical.parse(nochNichtErledigt));
-    var vtodo = comp.getFirstSubcomponent('vtodo');
+    var vtodo = comp.getAllSubcomponents('vtodo')[1];
     return vtodo;
 };
 describe('Test ical-todo todo creation methods', function() {
@@ -49,12 +52,25 @@ describe('Test ical-todo todo creation methods', function() {
         customTodo.data.uuid.should.be.a('string');
     });
     it('createTodoFromScratch should create custom todo object with correct vtodo', function() {
-        var vtodo = getRepeatingvTodo('./test/test-ics/3e65ac8d-a35c-4c53-acc0-d98906be436b-just-copied.ics');
+        var vtodo = getFirstvTodo('./test/test-ics/3e65ac8d-a35c-4c53-acc0-d98906be436b-just-copied.ics');
         var customTodo = todoFactory.createTodoFromScratch(vtodo,ical.Time.fromJSDate(new Date(2014,10,13,16,00,00)));
         var vtodoCopiedString = fs.readFileSync('./test/test-ics/3e65ac8d-a35c-4c53-acc0-d98906be436b-just-copied.ics');
         var comp = new ical.Component(ical.parse(vtodoCopiedString));
         var vtodoCopied= comp.getAllSubcomponents('vtodo')[1];
         vtodoCopied.updatePropertyWithValue('created',new ical.Time.fromJSDate(new Date()));
-        customTodo.iCalData.toString().should.equal(vtodoCopied.toString());
+        customTodo.iCalData.vtodoTemplate.toString().should.equal(vtodoCopied.toString());
+    });
+    it('createTodoFromScratch should create custom todo object with correct iCalData uid', function() {
+        var vtodo = getFirstvTodo('./test/test-ics/3e65ac8d-a35c-4c53-acc0-d98906be436b-just-copied.ics');
+        var customTodo = todoFactory.createTodoFromScratch(vtodo,ical.Time.fromJSDate(new Date(2014,10,13,16,00,00)));
+        customTodo.iCalData.uid.should.equal('3e65ac8d-a35c-4c53-acc0-d98906be436b');
+    });
+    it('createTodoFromExisting should create custom todo object with correct vtodo', function() {
+        var vtodo = getSecondvTodo('./test/test-ics/3e65ac8d-a35c-4c53-acc0-d98906be436b-just-copied.ics');
+        var customTodo = todoFactory.createTodoFromExisting(vtodo,ical.Time.fromJSDate(new Date(2014,10,13,16,00,00)));
+        var vtodoCopiedString = fs.readFileSync('./test/test-ics/3e65ac8d-a35c-4c53-acc0-d98906be436b-just-copied.ics');
+        var comp = new ical.Component(ical.parse(vtodoCopiedString));
+        var vtodoCopied= comp.getAllSubcomponents('vtodo')[1];
+        customTodo.iCalData.vtodoTemplate.toString().should.equal(vtodoCopied.toString());
     });
 });
