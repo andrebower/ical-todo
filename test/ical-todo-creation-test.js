@@ -3,7 +3,7 @@
  */
 var chai = require('chai'),
     should = chai.should(),
-    icalTodo = require('../index'),
+    icalTodo = require('../lib/ical-todo/ical-translator'),
     ical = require('../lib/ical'),
     fs = require('./test-helper/fs-test-helper');
 
