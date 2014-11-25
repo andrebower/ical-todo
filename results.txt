@@ -1,38 +1,38 @@
 
-[0m[0m
-[0m  Test ical parsing[0m
-[2K[0G  [32m  ✓[0m[90m Parsing and stringifiying should be equal to input [0m
-[2K[0G  [32m  ✓[0m[90m Custom fields should work [0m
-[2K[0G  [32m  ✓[0m[90m RRule 2 iterations should compute next Date correctly [0m
-[2K[0G  [32m  ✓[0m[90m Vevent 2 should not have RRule [0m
-[2K[0G  [32m  ✓[0m[90m Vevent 2 should have correct description [0m
 
-[0m  Test ical-todo todo creation methods[0m
-[2K[0G  [32m  ✓[0m[90m getTodoWithRecurrenceId should find correct todo [0m
-[2K[0G  [32m  ✓[0m[90m getAllTodos in one year(till 2015-11-12-0759) [0m[31m(164ms)[0m
-[2K[0G  [32m  ✓[0m[90m getAllodos in one year(till 2015-11-12-0759) without the completed one [0m[31m(125ms)[0m
-[2K[0G  [32m  ✓[0m[90m getAllTodos in one year(till 2015-11-12-0759) with a copied one only 2 repeats [0m
+  Test ical parsing
+    √ Parsing and stringifiying should be equal to input 
+    √ Custom fields should work 
+    √ RRule 2 iterations should compute next Date correctly 
+    √ Vevent 2 should not have RRule 
+    √ Vevent 2 should have correct description 
 
-[0m  Test ical parsing modifiying and creation[0m
-[2K[0G  [32m  ✓[0m[90m Parsing and stringifiying should be equal to input [0m
-[2K[0G  [32m  ✓[0m[90m Parsing and reading vtodo [0m
-[2K[0G  [32m  ✓[0m[90m Parsing and modifiying vtodo [0m
+  Test ical-todo todo creation methods
+    √ getTodoWithRecurrenceId should find correct todo 
+    √ getAllTodos in one year(till 2015-11-12-0759) (80ms)
+    √ getAllodos in one year(till 2015-11-12-0759) without the completed one (43ms)
+    √ getAllTodos in one year(till 2015-11-12-0759) with a copied one only 2 repeats 
 
-[0m  Test todo-repository[0m
-[2K[0G  [32m  ✓[0m[90m test if mocking of caldav-requester works [0m[31m(145ms)[0m
-[2K[0G  [32m  ✓[0m[90m test getAllTodos first is completed [0m[31m(131ms)[0m
-[2K[0G  [32m  ✓[0m[90m test getAllTodos fifthOpen is correct [0m[31m(131ms)[0m
+  Test ical parsing modifiying and creation
+    √ Parsing and stringifiying should be equal to input 
+    √ Parsing and reading vtodo 
+    √ Parsing and modifiying vtodo 
 
-[0m  Test ical-todo todo creation methods[0m
-[2K[0G  [32m  ✓[0m[90m createTodoFromScratch should create custom todo objects [0m
-[2K[0G  [32m  ✓[0m[90m createTodoFromScratch should create custom todo object with summary [0m
-[2K[0G  [32m  ✓[0m[90m createTodoFromScratch should create custom todo object with description [0m
-[2K[0G  [32m  ✓[0m[90m createTodoFromScratch should create custom todo object with dueDate [0m
-[2K[0G  [32m  ✓[0m[90m createTodoFromScratch should create custom todo object with uuid [0m
-[2K[0G  [32m  ✓[0m[90m createTodoFromScratch should create custom todo object with correct vtodo [0m
-[2K[0G  [32m  ✓[0m[90m createTodoFromScratch should create custom todo object with correct iCalData uid [0m
-[2K[0G  [32m  ✓[0m[90m createTodoFromExisting should create custom todo object with correct vtodo [0m
+  Test todo-repository
+    √ test if mocking of caldav-requester works (70ms)
+    √ test getAllTodos first is completed (49ms)
+    √ test getAllTodos fifthOpen is correct (50ms)
+
+  Test ical-todo todo creation methods
+    √ createTodoFromScratch should create custom todo objects 
+    √ createTodoFromScratch should create custom todo object with summary 
+    √ createTodoFromScratch should create custom todo object with description 
+    √ createTodoFromScratch should create custom todo object with dueDate 
+    √ createTodoFromScratch should create custom todo object with uuid 
+    √ createTodoFromScratch should create custom todo object with correct vtodo 
+    √ createTodoFromScratch should create custom todo object with correct iCalData uid 
+    √ createTodoFromExisting should create custom todo object with correct vtodo 
 
 
-[92m [0m[32m 23 passing[0m[90m (744ms)[0m
+  23 passing (316ms)
 
