@@ -17,9 +17,11 @@
   },
   "homepage": "https://github.com/andrebower/caldav-todo",
   "dependencies": {
+    "async": "^0.9.0",
     "grunt": "^0.4.5",
     "moment": "^2.8.3",
-    "node-uuid": "^1.4.1"
+    "node-uuid": "^1.4.1",
+    "xmldoc": "^0.1.3"
   },
   "devDependencies": {
     "chai": "^1.10.0",
