@@ -1,6 +1,9 @@
 /**
  * Created by aab on 12.11.2014.
  */
+
+"use strict";
+
 var chai = require('chai'),
     should = chai.should(),
     ical = require('../lib/ical'),
@@ -26,7 +29,7 @@ describe('Test todo-repository', function () {
     });
     it('test getAllTodos first is completed', function (done) {
         var caldavRequesterMock = {};
-        var todoRepoWithMockedRequester = proxyquire('../lib/ical-todo/todo-repository', {'./caldav-requester': caldavRequesterMock})('');
+        var todoRepoWithMockedRequester =  proxyquire('../lib/ical-todo/todo-repository', {'./caldav-requester': caldavRequesterMock})('');
         caldavRequesterMock.getIcsData = function (url, callback) {
             var result = [];
             result.push(fs.readFileSync('./test/test-ics/79fe94ee-5524-46bd-b5e6-4fdec65c1f01-completed-once.ics'));
