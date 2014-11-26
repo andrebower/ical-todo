@@ -73,4 +73,11 @@ describe('Test ical-todo todo creation methods', function() {
         var vtodoCopied= comp.getAllSubcomponents('vtodo')[1];
         customTodo.iCalData.vtodoTemplate.toString().should.equal(vtodoCopied.toString());
     });
+    it('createTodoFromExisting should create custom todo object with vtodo with correct parent', function() {
+        var vtodo = getSecondvTodo('./test/test-ics/3e65ac8d-a35c-4c53-acc0-d98906be436b-just-copied.ics');
+        var customTodo = todoFactory.createTodoFromExisting(vtodo,ical.Time.fromJSDate(new Date(2014,10,13,16,00,00)));
+        var vtodoCopiedString = fs.readFileSync('./test/test-ics/3e65ac8d-a35c-4c53-acc0-d98906be436b-just-copied.ics');
+        var comp = new ical.Component(ical.parse(vtodoCopiedString));
+        customTodo.iCalData.parent.toString().should.equal(comp.toString());
+    });
 });
