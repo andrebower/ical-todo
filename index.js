@@ -1,9 +1,21 @@
 "use strict";
-var repo = require('./lib/ical-todo/todo-repository')('url');
 
-repo.getAllTodos(new Date(2014, 11, 29, 11),function(result){
-    console.log(result);
-});
-setTimeout(function(){
-    console.log('Waited');
-},40000);
+
+var repoFunction = require('./lib/ical-todo/todo-repository');
+var moment = require('moment');
+
+
+
+
+module.exports = function (options) {
+    var repo = repoFunction(options);
+    var getAllCurrentTodos = function getAllCurrentTodos(callback) {
+        var currentDate = moment();
+        repo.getAllTodos(currentDate.toDate(),function(result){
+              callback(result);
+        });
+    };
+
+    return {getAllCurrentTodos :getAllCurrentTodos};
+};
+module.exports('test');
