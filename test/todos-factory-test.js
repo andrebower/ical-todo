@@ -29,6 +29,11 @@ describe('Test ical-todo todo creation methods', function() {
         var vtodo = getNotCompletedVtodo();
         var customTodo = todoFactory.createTodoFromScratch(vtodo,ical.Time.fromJSDate(new Date(2014,10,12,10,00,00)));
         customTodo.should.have.property('data');
+        customTodo.data.should.have.property('uuid');
+        customTodo.data.should.have.property('summary');
+        customTodo.data.should.have.property('dueDate');
+        customTodo.data.should.have.property('completed');
+        customTodo.data.should.not.have.property('complete');
         customTodo.should.have.property('iCalData');
     });
     it('createTodoFromScratch should create custom todo object with summary', function() {
