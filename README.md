@@ -19,4 +19,5 @@ Currently supported Operations:
 -	Request all Todos until today
 
 
-    icalendarTodo.getAllCurrentTodos(function(result) {});
+
+	icalendarTodo.getAllCurrentTodos(function(result) {});
