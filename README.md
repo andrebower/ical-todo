@@ -15,9 +15,8 @@ Create with
 	};
 	var icalendarTodo = require('ical-todo')(options);
 	
-Currently supported Operations:
--	Request all Todos until today
 
+Request all Todos until today
 
 
 	icalendarTodo.getAllCurrentTodos(function(result) {});
