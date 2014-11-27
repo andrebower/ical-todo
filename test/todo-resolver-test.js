@@ -17,7 +17,7 @@ describe('Test todo-resolver', function() {
                 callback(result);
             }}
         };
-        var todoRepoWithMockedRequester = proxyquire('../lib/ical-todo/todo-repository', {'./caldav-requester': caldavRequesterMock})('');
+        var todoRepoWithMockedRequester = proxyquire('../lib/ical-todo/todo-repository', {'./caldav/caldav-requester': caldavRequesterMock})('');
 
         todoRepoWithMockedRequester.getAllTodos(new Date(2014, 11, 29, 11), function (result) {
             result[5].complete();

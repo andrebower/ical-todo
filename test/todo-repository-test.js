@@ -21,7 +21,7 @@ describe('Test todo-repository', function () {
                 callback(result);
             }}
         };
-        var todoRepoWithMockedRequester = proxyquire('../lib/ical-todo/todo-repository', {'./caldav-requester': caldavRequesterMock})('');
+        var todoRepoWithMockedRequester = proxyquire('../lib/ical-todo/todo-repository', {'./caldav/caldav-requester': caldavRequesterMock})('');
 
         todoRepoWithMockedRequester.getAllTodos(new Date(2014, 11, 29, 11), function (result) {
             var expected = {uuid: '79fe94ee-5524-46bd-b5e6-4fdec65c1f01-20141112T100000', summary: 'Aufgabe die 1 mal erledigt ist', dueDate: new Date(2014, 10, 12, 10), completed: true};
@@ -30,14 +30,14 @@ describe('Test todo-repository', function () {
         });
     });
     it('test getAllTodos first is completed', function (done) {
-        var caldavRequesterMock = function () {
+        var caldavRequesterMock = function (options) {
             return {getIcsData: function (url, callback) {
                 var result = [];
                 result.push({etag:'bla',iCalData:fs.readFileSync('./test/test-ics/79fe94ee-5524-46bd-b5e6-4fdec65c1f01-completed-once.ics')});
                 callback(result);
             }}
         };
-        var todoRepoWithMockedRequester = proxyquire('../lib/ical-todo/todo-repository', {'./caldav-requester': caldavRequesterMock})('');
+        var todoRepoWithMockedRequester = proxyquire('../lib/ical-todo/todo-repository', {'./caldav/caldav-requester': caldavRequesterMock})('');
         todoRepoWithMockedRequester.getAllTodos(new Date(2014, 11, 29, 11), function (result) {
             var expected = {uuid: '79fe94ee-5524-46bd-b5e6-4fdec65c1f01-20141112T100000', summary: 'Aufgabe die 1 mal erledigt ist', dueDate: new Date(2014, 10, 12, 10), completed: true};
             result[0].uuid.should.eql(expected.uuid);
@@ -55,7 +55,7 @@ describe('Test todo-repository', function () {
                 callback(result);
             }}
         };
-        var todoRepoWithMockedRequester = proxyquire('../lib/ical-todo/todo-repository', {'./caldav-requester': caldavRequesterMock})('');
+        var todoRepoWithMockedRequester = proxyquire('../lib/ical-todo/todo-repository', {'./caldav/caldav-requester': caldavRequesterMock})('');
         todoRepoWithMockedRequester.getAllTodos(new Date(2014, 11, 29, 11), function (result) {
             var expected = {uuid: '79fe94ee-5524-46bd-b5e6-4fdec65c1f01-20141117T100000', summary: 'Aufgabe die 1 mal erledigt ist', dueDate: new Date(2014, 10, 17, 10), completed: false};
             result[5].uuid.should.eql(expected.uuid);
