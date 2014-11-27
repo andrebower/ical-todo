@@ -9,10 +9,8 @@
 
   Test ical-todo todo creation methods
     √ getTodoWithRecurrenceId should find correct todo 
-    √ getAllTodos in one year(till 2015-11-12-0759) (76ms)
-createTodoFromExisting etag: undefined
-    √ getAllodos in one year(till 2015-11-12-0759) without the completed one (44ms)
-createTodoFromExisting etag: undefined
+    √ getAllTodos in one year(till 2015-11-12-0759) (77ms)
+    √ getAllodos in one year(till 2015-11-12-0759) without the completed one (45ms)
     √ getAllTodos in one year(till 2015-11-12-0759) with a copied one only 2 repeats 
 
   Test ical parsing modifiying and creation
@@ -21,23 +19,11 @@ createTodoFromExisting etag: undefined
     √ Parsing and modifiying vtodo 
 
   Test todo-repository
-createTodoFromExisting etag: bla
-    √ test if mocking of caldav-requester works 
-createTodoFromExisting etag: bla
+    √ test if mocking of caldav-requester works (53ms)
     √ test getAllTodos first is completed 
-createTodoFromExisting etag: bla
     √ test getAllTodos fifthOpen is correct 
 
   Test todo-resolver
-createTodoFromExisting etag: bla
-{ auth: undefined,
-  hostname: undefined,
-  port: 80,
-  path: 'undefined79fe94ee-5524-46bd-b5e6-4fdec65c1f01.ics',
-  method: 'PUT',
-  headers: 
-   { 'Content-Type': 'text/calendar; charset=utf-8',
-     'If-Match': '"bla"' } }
 { uuid: '79fe94ee-5524-46bd-b5e6-4fdec65c1f01-20141117T100000',
   summary: 'Aufgabe die 1 mal erledigt ist',
   dueDate: Mon Nov 17 2014 10:00:00 GMT+0100 (Mitteleuropäische Zeit),
@@ -53,39 +39,9 @@ createTodoFromExisting etag: bla
     √ createTodoFromScratch should create custom todo object with uuid 
     √ createTodoFromScratch should create custom todo object with correct vtodo 
     √ createTodoFromScratch should create custom todo object with correct iCalData uid 
-createTodoFromExisting etag: { wrappedJSObject: [Circular],
-  _time: 
-   { year: 2014,
-     month: 11,
-     day: 13,
-     hour: 16,
-     minute: 0,
-     second: 0,
-     isDate: false },
-  zone: 
-   { wrappedJSObject: [Circular],
-     expandedUntilYear: 0,
-     changes: [],
-     tzid: 'floating' },
-  _pendingNormalization: true }
     √ createTodoFromExisting should create custom todo object with correct vtodo 
-createTodoFromExisting etag: { wrappedJSObject: [Circular],
-  _time: 
-   { year: 2014,
-     month: 11,
-     day: 13,
-     hour: 16,
-     minute: 0,
-     second: 0,
-     isDate: false },
-  zone: 
-   { wrappedJSObject: [Circular],
-     expandedUntilYear: 0,
-     changes: [],
-     tzid: 'floating' },
-  _pendingNormalization: true }
     √ createTodoFromExisting should create custom todo object with vtodo with correct parent 
 
 
-  25 passing (215ms)
+  25 passing (239ms)
 
