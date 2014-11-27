@@ -9,8 +9,8 @@
 
   Test ical-todo todo creation methods
     √ getTodoWithRecurrenceId should find correct todo 
-    √ getAllTodos in one year(till 2015-11-12-0759) (77ms)
-    √ getAllodos in one year(till 2015-11-12-0759) without the completed one (45ms)
+    √ getAllTodos in one year(till 2015-11-12-0759) (80ms)
+    √ getAllodos in one year(till 2015-11-12-0759) without the completed one (44ms)
     √ getAllTodos in one year(till 2015-11-12-0759) with a copied one only 2 repeats 
 
   Test ical parsing modifiying and creation
@@ -19,7 +19,7 @@
     √ Parsing and modifiying vtodo 
 
   Test todo-repository
-    √ test if mocking of caldav-requester works (53ms)
+    √ test if mocking of caldav-requester works (40ms)
     √ test getAllTodos first is completed 
     √ test getAllTodos fifthOpen is correct 
 
@@ -43,5 +43,5 @@
     √ createTodoFromExisting should create custom todo object with vtodo with correct parent 
 
 
-  25 passing (239ms)
+  25 passing (236ms)
 
