@@ -28,7 +28,7 @@ Fields of Todo objects ([]=optional)
 
 	{
 		uuid:"Id by combining uid of VTODO and Recurrence-ID: 'uid'-'Recurrence-Id'",
-		summary:"Summray",
+		summary:"Summary",
 		[description]: "Optional Description",
 		completed:"True or False",
 		complete: //Function to complete the Todo,
