@@ -9,8 +9,8 @@
 
   Test ical-todo todo creation methods
     √ getTodoWithRecurrenceId should find correct todo 
-    √ getAllTodos in one year(till 2015-11-12-0759) (79ms)
-    √ getAllodos in one year(till 2015-11-12-0759) without the completed one (43ms)
+    √ getAllTodos in one year(till 2015-11-12-0759) (78ms)
+    √ getAllodos in one year(till 2015-11-12-0759) without the completed one (45ms)
     √ getAllTodos in one year(till 2015-11-12-0759) with a copied one only 2 repeats 
 
   Test ical parsing modifiying and creation
@@ -18,19 +18,52 @@
     √ Parsing and reading vtodo 
     √ Parsing and modifiying vtodo 
 
+  Test todo-completer
+{ data: 
+   { uuid: '79fe94ee-5524-46bd-b5e6-4fdec65c1f01-20141112T100000',
+     summary: 'Aufgabe die 1 mal erledigt ist',
+     startDate: Wed Nov 12 2014 10:00:00 GMT+0100 (Mitteleuropäische Zeit),
+     completed: false },
+  iCalData: 
+   { added: false,
+     vtodoTemplate: 
+      { jCal: [Object],
+        parent: null,
+        _properties: [Object],
+        _hydratedPropertyCount: 2 },
+     uid: '79fe94ee-5524-46bd-b5e6-4fdec65c1f01',
+     parent: 
+      { jCal: [Object],
+        parent: null,
+        _components: [Object],
+        _hydratedComponentCount: 1 },
+     etag: 'etag' } }
+    √ Test completeTodo on single instance  
+{ data: 
+   { uuid: '79fe94ee-5524-46bd-b5e6-4fdec65c1f01-20141112T100000',
+     summary: 'Aufgabe die 1 mal erledigt ist',
+     startDate: Wed Nov 12 2014 10:00:00 GMT+0100 (Mitteleuropäische Zeit),
+     completed: false },
+  iCalData: 
+   { added: false,
+     vtodoTemplate: 
+      { jCal: [Object],
+        parent: null,
+        _properties: [Object],
+        _hydratedPropertyCount: 2 },
+     uid: '79fe94ee-5524-46bd-b5e6-4fdec65c1f01',
+     parent: 
+      { jCal: [Object],
+        parent: null,
+        _components: [Object],
+        _hydratedComponentCount: 1 },
+     etag: 'etag' } }
+    √ Test uncompleteTodo on single instance  
+
   Test todo-repository
     √ test if mocking of caldav-requester works 
     √ test getAllTodos first is completed 
     √ test getAllTodos fifthOpen is correct 
-
-  Test todo-resolver
-{ uuid: '79fe94ee-5524-46bd-b5e6-4fdec65c1f01-20141117T100000',
-  summary: 'Aufgabe die 1 mal erledigt ist',
-  startDate: Mon Nov 17 2014 10:00:00 GMT+0100 (Mitteleuropäische Zeit),
-  completed: true,
-  complete: [Function],
-  uncomplete: [Function] }
-    √  
 
   Test ical-todo todo creation methods
     √ createTodoFromScratch should create custom todo objects 
@@ -45,5 +78,5 @@
     √ createTodoFromScratch should create custom todo object with startDate which differs from recurrence-ID date 
 
 
-  26 passing (218ms)
+  27 passing (208ms)
 

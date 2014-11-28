@@ -26,12 +26,12 @@ describe('Test ical parsing modifiying and creation', function() {
         var vtodoDoneOnceString = fs.readFileSync('./test/test-ics/79fe94ee-5524-46bd-b5e6-4fdec65c1f01-completed-once.ics');
         var newvtodo = new ical.Component(ical.parse(vtodos[0].toString()));
         newvtodo.removeProperty('rrule');
-        newvtodo.addPropertyWithValue('status','COMPLETED');
         var recurIdProp = new ical.Property('recurrence-id');
         var time = new ical.Time.fromJSDate(new Date(2014,10,12,10));
         recurIdProp.setValue(time);
         recurIdProp.setParameter('tzid','Europe/Berlin');
         newvtodo.addProperty(recurIdProp);
+        newvtodo.addPropertyWithValue('status','COMPLETED');
         var completedIdProp = new ical.Property('completed');
         var time = new ical.Time.fromJSDate(new Date(2014,10,12,09,47,49),'Z');
         completedIdProp.setValue(time);

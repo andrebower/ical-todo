@@ -18,6 +18,7 @@ var getFirstvTodo = function (path) {
     var vtodo = comp.getFirstSubcomponent('vtodo');
     return vtodo;
 };
+
 var getSecondvTodo = function (path) {
     var nochNichtErledigt = fs.readFileSync(path);
     var comp = new ical.Component(ical.parse(nochNichtErledigt));
@@ -62,7 +63,7 @@ describe('Test ical-todo todo creation methods', function() {
         var vtodoCopiedString = fs.readFileSync('./test/test-ics/3e65ac8d-a35c-4c53-acc0-d98906be436b-just-copied.ics');
         var comp = new ical.Component(ical.parse(vtodoCopiedString));
         var vtodoCopied= comp.getAllSubcomponents('vtodo')[1];
-        vtodoCopied.updatePropertyWithValue('created',new ical.Time.fromJSDate(new Date()));
+        vtodoCopied.updatePropertyWithValue('created',new ical.Time.fromJSDate(new Date(),'Z'));
         customTodo.iCalData.vtodoTemplate.toString().should.equal(vtodoCopied.toString());
     });
     it('createTodoFromScratch should create custom todo object with correct iCalData uid', function() {
