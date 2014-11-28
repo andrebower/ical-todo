@@ -9,8 +9,8 @@
 
   Test ical-todo todo creation methods
     √ getTodoWithRecurrenceId should find correct todo 
-    √ getAllTodos in one year(till 2015-11-12-0759) (80ms)
-    √ getAllodos in one year(till 2015-11-12-0759) without the completed one (44ms)
+    √ getAllTodos in one year(till 2015-11-12-0759) (75ms)
+    √ getAllodos in one year(till 2015-11-12-0759) without the completed one (43ms)
     √ getAllTodos in one year(till 2015-11-12-0759) with a copied one only 2 repeats 
 
   Test ical parsing modifiying and creation
@@ -19,14 +19,14 @@
     √ Parsing and modifiying vtodo 
 
   Test todo-repository
-    √ test if mocking of caldav-requester works (40ms)
+    √ test if mocking of caldav-requester works 
     √ test getAllTodos first is completed 
     √ test getAllTodos fifthOpen is correct 
 
   Test todo-resolver
 { uuid: '79fe94ee-5524-46bd-b5e6-4fdec65c1f01-20141117T100000',
   summary: 'Aufgabe die 1 mal erledigt ist',
-  dueDate: Mon Nov 17 2014 10:00:00 GMT+0100 (Mitteleuropäische Zeit),
+  startDate: Mon Nov 17 2014 10:00:00 GMT+0100 (Mitteleuropäische Zeit),
   completed: true,
   complete: [Function] }
     √  
@@ -35,7 +35,7 @@
     √ createTodoFromScratch should create custom todo objects 
     √ createTodoFromScratch should create custom todo object with summary 
     √ createTodoFromScratch should create custom todo object with description 
-    √ createTodoFromScratch should create custom todo object with dueDate 
+    √ createTodoFromScratch should create custom todo object with startDate 
     √ createTodoFromScratch should create custom todo object with uuid 
     √ createTodoFromScratch should create custom todo object with correct vtodo 
     √ createTodoFromScratch should create custom todo object with correct iCalData uid 
@@ -43,5 +43,5 @@
     √ createTodoFromExisting should create custom todo object with vtodo with correct parent 
 
 
-  25 passing (236ms)
+  25 passing (213ms)
 

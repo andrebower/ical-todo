@@ -48,7 +48,7 @@ describe('Test todo-repository', function () {
             var expected = {uuid: '79fe94ee-5524-46bd-b5e6-4fdec65c1f01-20141112T100000', summary: 'Aufgabe die 1 mal erledigt ist', dueDate: new Date(2014, 10, 12, 10), completed: true};
             result[0].uuid.should.eql(expected.uuid);
             result[0].summary.should.eql(expected.summary);
-            result[0].dueDate.should.eql(expected.dueDate);
+            result[0].startDate.should.eql(expected.dueDate);
             result[0].completed.should.eql(expected.completed);
             done();
         });
@@ -69,7 +69,7 @@ describe('Test todo-repository', function () {
             var expected = {uuid: '79fe94ee-5524-46bd-b5e6-4fdec65c1f01-20141117T100000', summary: 'Aufgabe die 1 mal erledigt ist', dueDate: new Date(2014, 10, 17, 10), completed: false};
             result[5].uuid.should.eql(expected.uuid);
             result[5].summary.should.eql(expected.summary);
-            result[5].dueDate.should.eql(expected.dueDate);
+            result[5].startDate.should.eql(expected.dueDate);
             result[5].completed.should.eql(expected.completed);
             result[5].should.have.property('complete');
             done();

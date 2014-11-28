@@ -31,7 +31,7 @@ describe('Test ical-todo todo creation methods', function() {
         customTodo.should.have.property('data');
         customTodo.data.should.have.property('uuid');
         customTodo.data.should.have.property('summary');
-        customTodo.data.should.have.property('dueDate');
+        customTodo.data.should.have.property('startDate');
         customTodo.data.should.have.property('completed');
         customTodo.data.should.not.have.property('complete');
         customTodo.should.have.property('iCalData');
@@ -46,10 +46,10 @@ describe('Test ical-todo todo creation methods', function() {
         var customTodo = todoFactory.createTodoFromScratch(vtodo,ical.Time.fromJSDate(new Date(2014,10,12,10,00,00)));
         should.not.exist(customTodo.data.description);
     });
-    it('createTodoFromScratch should create custom todo object with dueDate', function() {
+    it('createTodoFromScratch should create custom todo object with startDate', function() {
         var vtodo = getNotCompletedVtodo();
         var customTodo = todoFactory.createTodoFromScratch(vtodo,ical.Time.fromJSDate(new Date(2014,10,12,10,00,00)));
-        customTodo.data.dueDate.should.equalDate(new Date(2014,10,12,10,00,00));
+        customTodo.data.startDate.should.equalDate(new Date(2014,10,12,10,00,00));
     });
     it('createTodoFromScratch should create custom todo object with uuid', function() {
         var vtodo = getNotCompletedVtodo();
