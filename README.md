@@ -32,5 +32,5 @@ Fields of Todo objects ([]=optional)
 		[description]: "Optional Description,
 		completed:"True or False",
 		complete: //Function to complete the Todo,
-		startDate:"Start Date of Todo
+		startDate:"Start Date of Todo"
 	}
