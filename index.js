@@ -16,12 +16,16 @@ module.exports = function (options) {
         }
     }
     var repo = repoFunction(options);
-    var getAllCurrentTodos = function getAllCurrentTodos(callback) {
+    exports.getAllCurrentTodos = function getAllCurrentTodos(callback) {
         var currentDate = moment().add(1,'d').hours(0).minutes(0).seconds(0).milliseconds(0);
         repo.getAllTodos(currentDate.toDate(),function(result){
               callback(result);
         });
     };
 
-    return {getAllCurrentTodos :getAllCurrentTodos};
+    exports.getTodo = function(id) {
+        return repo.getTodo(id);
+    };
+
+    return exports;
 };
