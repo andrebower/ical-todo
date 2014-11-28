@@ -23,8 +23,8 @@ module.exports = function (options) {
         });
     };
 
-    exports.getTodo = function(id) {
-        return repo.getTodo(id);
+    exports.getTodo = function(id,callback) {
+        callback(repo.getTodo(id));
     };
 
     return exports;
