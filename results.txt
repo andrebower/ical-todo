@@ -9,9 +9,55 @@
 
   Test ical-todo todo creation methods
     √ getTodoWithRecurrenceId should find correct todo 
-    √ getAllTodos in one year(till 2015-11-12-0759) (78ms)
+    √ getAllTodos in one year(till 2015-11-12-0759) (83ms)
     √ getAllodos in one year(till 2015-11-12-0759) without the completed one (45ms)
     √ getAllTodos in one year(till 2015-11-12-0759) with a copied one only 2 repeats 
+
+  Test ical-translator
+{ jCal: 
+   [ 'vtodo',
+     [ [Object], [Object], [Object], [Object], [Object], [Object] ],
+     [] ],
+  parent: 
+   { jCal: [ 'vcalendar', [Object], [Object] ],
+     parent: null,
+     _components: [ , [Circular] ],
+     _hydratedComponentCount: 1 },
+  _properties: 
+   [ ,
+     ,
+     ,
+     ,
+     ,
+     { jCal: [Object],
+       parent: [Circular],
+       isDecorated: true,
+       isMultiValue: false,
+       _values: [Object] } ],
+  _hydratedPropertyCount: 1 }
+    √ without rrule 
+{ jCal: 
+   [ 'vtodo',
+     [ [Object], [Object], [Object], [Object], [Object], [Object] ],
+     [] ],
+  parent: 
+   { jCal: [ 'vcalendar', [Object], [Object] ],
+     parent: null,
+     _components: [ , [Circular] ],
+     _hydratedComponentCount: 1 },
+  _properties: 
+   [ ,
+     ,
+     ,
+     ,
+     ,
+     { jCal: [Object],
+       parent: [Circular],
+       isDecorated: true,
+       isMultiValue: false,
+       _values: [Object] } ],
+  _hydratedPropertyCount: 1 }
+    √ without rrule 
 
   Test ical parsing modifiying and creation
     √ Parsing and stringifiying should be equal to input 
@@ -78,5 +124,5 @@
     √ createTodoFromScratch should create custom todo object with startDate which differs from recurrence-ID date 
 
 
-  27 passing (208ms)
+  29 passing (212ms)
 
