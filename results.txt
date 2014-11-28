@@ -9,8 +9,8 @@
 
   Test ical-todo todo creation methods
     √ getTodoWithRecurrenceId should find correct todo 
-    √ getAllTodos in one year(till 2015-11-12-0759) (75ms)
-    √ getAllodos in one year(till 2015-11-12-0759) without the completed one (43ms)
+    √ getAllTodos in one year(till 2015-11-12-0759) (78ms)
+    √ getAllodos in one year(till 2015-11-12-0759) without the completed one (45ms)
     √ getAllTodos in one year(till 2015-11-12-0759) with a copied one only 2 repeats 
 
   Test ical parsing modifiying and creation
@@ -41,7 +41,8 @@
     √ createTodoFromScratch should create custom todo object with correct iCalData uid 
     √ createTodoFromExisting should create custom todo object with correct vtodo 
     √ createTodoFromExisting should create custom todo object with vtodo with correct parent 
+    √ createTodoFromScratch should create custom todo object with startDate which differs from recurrence-ID date 
 
 
-  25 passing (213ms)
+  26 passing (222ms)
 

@@ -49,7 +49,7 @@ describe('Test ical-todo todo creation methods', function() {
     it('createTodoFromScratch should create custom todo object with startDate', function() {
         var vtodo = getNotCompletedVtodo();
         var customTodo = todoFactory.createTodoFromScratch(vtodo,ical.Time.fromJSDate(new Date(2014,10,12,10,00,00)));
-        customTodo.data.startDate.should.equalDate(new Date(2014,10,12,10,00,00));
+        customTodo.data.startDate.should.equalTime(new Date(2014,10,12,10,00,00));
     });
     it('createTodoFromScratch should create custom todo object with uuid', function() {
         var vtodo = getNotCompletedVtodo();
@@ -84,5 +84,12 @@ describe('Test ical-todo todo creation methods', function() {
         var vtodoCopiedString = fs.readFileSync('./test/test-ics/3e65ac8d-a35c-4c53-acc0-d98906be436b-just-copied.ics');
         var comp = new ical.Component(ical.parse(vtodoCopiedString));
         customTodo.iCalData.parent.toString().should.equal(comp.toString());
+    });
+    it('createTodoFromScratch should create custom todo object with startDate which differs from recurrence-ID date', function() {
+       var vtodoCopiedString = fs.readFileSync('./test/test-ics/79fe94ee-5524-46bd-b5e6-4fdec65c1f01-with-different-recur-and-dtstart.ics');
+        var comp = new ical.Component(ical.parse(vtodoCopiedString));
+        var vtodoCopied= comp.getAllSubcomponents('vtodo')[1];
+        var customTodo = todoFactory.createTodoFromExisting(vtodoCopied,'etag');
+        customTodo.data.startDate.should.equalTime(new Date(2014,10,12,15,00,00));
     });
 });
