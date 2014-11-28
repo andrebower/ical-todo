@@ -9,7 +9,8 @@ var optionFields = ['auth','path','hostname'];
 
 
 module.exports = function (options) {
-    for (var i = 0; i < optionFields.length; i++) {
+
+    for (var i = optionFields.length-1 ; i >= 0; i--) {
         var optionFieldName = optionFields[i];
         if(options[optionFieldName] === undefined) {
             throw "options needs auth hostname path and port fields";
