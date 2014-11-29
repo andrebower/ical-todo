@@ -1,128 +1,0 @@
-
-
-  Test ical parsing
-    √ Parsing and stringifiying should be equal to input 
-    √ Custom fields should work 
-    √ RRule 2 iterations should compute next Date correctly 
-    √ Vevent 2 should not have RRule 
-    √ Vevent 2 should have correct description 
-
-  Test ical-todo todo creation methods
-    √ getTodoWithRecurrenceId should find correct todo 
-    √ getAllTodos in one year(till 2015-11-12-0759) (83ms)
-    √ getAllodos in one year(till 2015-11-12-0759) without the completed one (45ms)
-    √ getAllTodos in one year(till 2015-11-12-0759) with a copied one only 2 repeats 
-
-  Test ical-translator
-{ jCal: 
-   [ 'vtodo',
-     [ [Object], [Object], [Object], [Object], [Object], [Object] ],
-     [] ],
-  parent: 
-   { jCal: [ 'vcalendar', [Object], [Object] ],
-     parent: null,
-     _components: [ , [Circular] ],
-     _hydratedComponentCount: 1 },
-  _properties: 
-   [ ,
-     ,
-     ,
-     ,
-     ,
-     { jCal: [Object],
-       parent: [Circular],
-       isDecorated: true,
-       isMultiValue: false,
-       _values: [Object] } ],
-  _hydratedPropertyCount: 1 }
-    √ without rrule 
-{ jCal: 
-   [ 'vtodo',
-     [ [Object], [Object], [Object], [Object], [Object], [Object] ],
-     [] ],
-  parent: 
-   { jCal: [ 'vcalendar', [Object], [Object] ],
-     parent: null,
-     _components: [ , [Circular] ],
-     _hydratedComponentCount: 1 },
-  _properties: 
-   [ ,
-     ,
-     ,
-     ,
-     ,
-     { jCal: [Object],
-       parent: [Circular],
-       isDecorated: true,
-       isMultiValue: false,
-       _values: [Object] } ],
-  _hydratedPropertyCount: 1 }
-    √ without rrule 
-
-  Test ical parsing modifiying and creation
-    √ Parsing and stringifiying should be equal to input 
-    √ Parsing and reading vtodo 
-    √ Parsing and modifiying vtodo 
-
-  Test todo-completer
-{ data: 
-   { uuid: '79fe94ee-5524-46bd-b5e6-4fdec65c1f01-20141112T100000',
-     summary: 'Aufgabe die 1 mal erledigt ist',
-     startDate: Wed Nov 12 2014 10:00:00 GMT+0100 (Mitteleuropäische Zeit),
-     completed: false },
-  iCalData: 
-   { added: false,
-     vtodoTemplate: 
-      { jCal: [Object],
-        parent: null,
-        _properties: [Object],
-        _hydratedPropertyCount: 2 },
-     uid: '79fe94ee-5524-46bd-b5e6-4fdec65c1f01',
-     parent: 
-      { jCal: [Object],
-        parent: null,
-        _components: [Object],
-        _hydratedComponentCount: 1 },
-     etag: 'etag' } }
-    √ Test completeTodo on single instance  
-{ data: 
-   { uuid: '79fe94ee-5524-46bd-b5e6-4fdec65c1f01-20141112T100000',
-     summary: 'Aufgabe die 1 mal erledigt ist',
-     startDate: Wed Nov 12 2014 10:00:00 GMT+0100 (Mitteleuropäische Zeit),
-     completed: false },
-  iCalData: 
-   { added: false,
-     vtodoTemplate: 
-      { jCal: [Object],
-        parent: null,
-        _properties: [Object],
-        _hydratedPropertyCount: 2 },
-     uid: '79fe94ee-5524-46bd-b5e6-4fdec65c1f01',
-     parent: 
-      { jCal: [Object],
-        parent: null,
-        _components: [Object],
-        _hydratedComponentCount: 1 },
-     etag: 'etag' } }
-    √ Test uncompleteTodo on single instance  
-
-  Test todo-repository
-    √ test if mocking of caldav-requester works 
-    √ test getAllTodos first is completed 
-    √ test getAllTodos fifthOpen is correct 
-
-  Test ical-todo todo creation methods
-    √ createTodoFromScratch should create custom todo objects 
-    √ createTodoFromScratch should create custom todo object with summary 
-    √ createTodoFromScratch should create custom todo object with description 
-    √ createTodoFromScratch should create custom todo object with startDate 
-    √ createTodoFromScratch should create custom todo object with uuid 
-    √ createTodoFromScratch should create custom todo object with correct vtodo 
-    √ createTodoFromScratch should create custom todo object with correct iCalData uid 
-    √ createTodoFromExisting should create custom todo object with correct vtodo 
-    √ createTodoFromExisting should create custom todo object with vtodo with correct parent 
-    √ createTodoFromScratch should create custom todo object with startDate which differs from recurrence-ID date 
-
-
-  29 passing (212ms)
-
