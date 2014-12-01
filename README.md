@@ -40,6 +40,6 @@ Operations of Todo objects
 
 Sets completed = true and writes it back to server. callback takes an errro argument which is null if erverything worked
 	
-	todo.uomplete([callback]);
+	todo.uncomplete([callback]);
 	
 Sets completed = false and writes it back to server. callback same as above
