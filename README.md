@@ -36,5 +36,6 @@ Fields of Todo objects ([]=optional)
 	}
 Operations of Todo objects
 
-	todo.complete([callback])	//Sets completed = true and writes it back to server. callback takes an errror 							//argument which is null if erverything worked
+	todo.complete([callback])	//Sets completed = true and writes it back to server. callback takes an errro
+	//argument which is null if erverything worked
 	todo.uomplete([callback])	//Sets completed = false and writes it back to server. callback same as above
