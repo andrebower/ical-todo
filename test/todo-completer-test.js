@@ -16,7 +16,6 @@ describe('Test todo-completer', function() {
         var comp = new ical.Component(ical.parse(vtodoCopiedString));
         var vtodoCopied= comp.getAllSubcomponents('vtodo')[0];
         var customTodo = todoFactory.createTodoFromScratch(vtodoCopied,ical.Time.fromJSDate(new Date(2014,10,12,10,0,0)),'etag');
-        console.log(customTodo);
         todoCompleter.completeTodo(customTodo);
         var expected = fs.readFileSync('./test/test-ics/79fe94ee-5524-46bd-b5e6-4fdec65c1f01-completed-once.ics');
         customTodo.iCalData.parent.getAllSubcomponents('vtodo')[1].getFirstProperty('status').getFirstValue().should.equal('COMPLETED');
@@ -28,7 +27,6 @@ describe('Test todo-completer', function() {
         var comp = new ical.Component(ical.parse(vtodoCopiedString));
         var vtodoCopied= comp.getAllSubcomponents('vtodo')[0];
         var customTodo = todoFactory.createTodoFromScratch(vtodoCopied,ical.Time.fromJSDate(new Date(2014,10,12,10,0,0)),'etag');
-        console.log(customTodo);
         todoCompleter.completeTodo(customTodo);
         todoCompleter.uncompleteTodo(customTodo);
         var expected = fs.readFileSync('./test/test-ics/79fe94ee-5524-46bd-b5e6-4fdec65c1f01-completed-once.ics');
