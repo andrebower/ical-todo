@@ -16,9 +16,9 @@ Create with
 	var icalendarTodo = require('ical-todo')(options);
 	
 
-Request all Todos until today
+Request all Todos until today. If connection is not available, error will be set.
 
-	icalendarTodo.getAllCurrentTodos(function(result) {});
+	icalendarTodo.getAllCurrentTodos(function(result,error) {});
 	
 Request single Todo
 	
